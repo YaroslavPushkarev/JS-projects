@@ -1,19 +1,19 @@
-const btn = document.getElementById('btn')
-const wrap = document.getElementById('wrap');
+const text = "Java Script is awesome!!"
+const inner = document.getElementById('inner')
 
-btn.addEventListener('click', () => {
-  createNotification()
-})
 
-function createNotification() {
-  const notif = document.createElement('div');
-  notif.classList.add('toast');
+let index = 0;
 
-  notif.innerText = "This notif";
+function writeText(){
+  inner.innerText = text.slice(0, index);
+  
+  index++;
 
-  wrap.appendChild(notif);
+  if(index > text.length - 1) {
+    index = 0; 
 
-  setTimeout(() => {
-    notif.remove();
-  }, 3000);
+  }
 }
+
+
+setInterval(writeText, 100);
